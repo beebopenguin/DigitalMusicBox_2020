@@ -1,0 +1,57 @@
+#:kivy 1.11.1
+
+
+<ToggleButton@Image>:
+    source: None
+    background_normal: ''
+
+    Image:
+        source: root.source
+        pos: root.pos
+        size: root.size
+
+<InstrumentScreen>:
+    GridLayout:
+        cols: 3
+        padding: 10, 10, 10, 10
+        spacing: 10, 10
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\AcousticGuitar.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\BrassSection.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\ElectricBass.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\ElectricPiano.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\GrandPiano.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\RockOrgan.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\StringEnsemble.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\Synth1.jpg'
+        ToggleButton:
+            group: 'btn'
+            source: 'Images\Synth2.jpg'
+
+
+
+
+
+
+
+
+
+
+
+
+
