@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.widget import Widget
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ToggleButtonBehavior
 from kivy.uix.behaviors import ButtonBehavior
@@ -7,19 +8,11 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 
 
-class MyButton(ToggleButtonBehavior, Image):
-    def __init__(self, **kwargs):
-        super(MyButton, self).__init__(**kwargs)
-        self.source = 'Images\AcousticGuitar.jpg'
-
-    def on_state(self, widget, value):
-        if value == 'down':
-            self.source = 'Images\Button_down.jpg'
-        else:
-            self.source = 'Images\AcousticGuitar.jpg'
+class NoteScreen(Screen):
+    pass
 
 
-class ImageButton(ToggleButtonBehavior, Image):
+class TempoScreen(Screen):
     pass
 
 
@@ -30,8 +23,12 @@ class InstrumentScreen(Screen):
 class MainApp(App):
 
     def build(self):
-        return InstrumentScreen()
-        #return MyButton()
+        sm = ScreenManager()
+        sm.add_widget(InstrumentScreen(name='instruments'))
+        sm.add_widget(TempoScreen(name='tempo'))
+        sm.add_widget(NoteScreen(name='notes'))
+
+        return sm
 
 
 if __name__ == '__main__':

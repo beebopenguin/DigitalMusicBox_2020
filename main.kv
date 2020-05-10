@@ -1,5 +1,13 @@
 #:kivy 1.11.1
 
+<NoteScreen>:
+    Button:
+        text: 'Notes'
+
+<TempoScreen>:
+    Button:
+        text: 'Tempo'
+
 
 <ToggleButton@Image>:
     source: None
@@ -10,38 +18,53 @@
         pos: root.pos
         size: root.size
 
+
 <InstrumentScreen>:
-    GridLayout:
-        cols: 3
-        padding: 10, 10, 10, 10
-        spacing: 10, 10
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\AcousticGuitar.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\BrassSection.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\ElectricBass.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\ElectricPiano.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\GrandPiano.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\RockOrgan.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\StringEnsemble.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\Synth1.jpg'
-        ToggleButton:
-            group: 'btn'
-            source: 'Images\Synth2.jpg'
+    FloatLayout:
+        triangle_mul: .5
+        canvas:
+            Color:
+                rgba: 1, 0, 0, 1
+            Triangle:
+                on_press: root.manager.current = 'tempo'
+                points: self.x + self.width * 0.01, self.y + self.height * self.triangle_mul, self.x + self.width * .06, self.y + self.height * self.triangle_mul + self.height * .05, self.x + self.width * .06, self.y + self.height * self.triangle_mul - self.height * .05
+            Triangle:
+                on_press: root.manager.current = 'notes'
+                points: self.x + self.width * 0.99, self.y + self.height * self.triangle_mul, self.x + self.width * 0.94, self.y + self.height * self.triangle_mul + self.height * .05, self.x + self.width * 0.94, self.y + self.height * self.triangle_mul - self.height * .05
+
+        GridLayout:
+            size_hint_x: .8
+            pos_hint: {'x':.1}
+            cols: 3
+            padding: 10, 10, 10, 10
+            spacing: 10, 10
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\AcousticGuitar.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\BrassSection.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\ElectricBass.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\ElectricPiano.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\GrandPiano.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\RockOrgan.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\StringEnsemble.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\Synth1.jpg'
+            ToggleButton:
+                group: 'btn'
+                source: 'Images\Synth2.jpg'
 
 
 
