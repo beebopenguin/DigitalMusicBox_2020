@@ -6,6 +6,7 @@ from kivy.uix.behaviors import ToggleButtonBehavior
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
+from kivy.graphics import Triangle
 
 
 class NoteScreen(Screen):
@@ -14,6 +15,10 @@ class NoteScreen(Screen):
 
 class TempoScreen(Screen):
     pass
+
+
+class TriangleButton(ButtonBehavior, Triangle):
+    on_press: print("hi")
 
 
 class InstrumentScreen(Screen):

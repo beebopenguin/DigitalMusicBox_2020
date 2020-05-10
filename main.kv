@@ -19,18 +19,43 @@
         size: root.size
 
 
-<InstrumentScreen>:
+#### ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Instrument screen stuff below~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ####
+
+
+
+<TriangleButtonShapes@Widget>: #class to create 2 triangle shape graphics (to appear as the buttons for switching screens - no actual functionality, just graphics.)
+
     FloatLayout:
+        size: root.size
         triangle_mul: .5
         canvas:
             Color:
                 rgba: 1, 0, 0, 1
             Triangle:
-                on_press: root.manager.current = 'tempo'
                 points: self.x + self.width * 0.01, self.y + self.height * self.triangle_mul, self.x + self.width * .06, self.y + self.height * self.triangle_mul + self.height * .05, self.x + self.width * .06, self.y + self.height * self.triangle_mul - self.height * .05
             Triangle:
-                on_press: root.manager.current = 'notes'
                 points: self.x + self.width * 0.99, self.y + self.height * self.triangle_mul, self.x + self.width * 0.94, self.y + self.height * self.triangle_mul + self.height * .05, self.x + self.width * 0.94, self.y + self.height * self.triangle_mul - self.height * .05
+
+<LeftInvisibleTransitionButton@Button>: #class that creates a transparent button located at the left triangle - press to switch screens.
+    size_hint: .1, .2
+    pos_hint: {'y': .4}
+    background_color: 0, 0, 0, 0
+
+<RightInvisibleTransitionButton@Button>: #class that creates a transparent button located at the right triangle - press to switch screens.
+    size_hint: .1, .2
+    pos_hint: {'x': .9, 'y': .4}
+    background_color: 0, 0, 0, 0
+
+<InstrumentScreen>:
+    FloatLayout:
+
+        LeftInvisibleTransitionButton:
+            on_press: root.manager.current = "tempo"
+
+        RightInvisibleTransitionButton:
+            on_press: root.manager.current = "notes"
+
+        TriangleButtonShapes:
 
         GridLayout:
             size_hint_x: .8
@@ -65,9 +90,6 @@
             ToggleButton:
                 group: 'btn'
                 source: 'Images\Synth2.jpg'
-
-
-
 
 
 
